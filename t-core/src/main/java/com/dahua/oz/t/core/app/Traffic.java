@@ -25,4 +25,8 @@ public final class Traffic {
         return Configurator.getInstance().getConfigurations();
     }
 
+    public static Context getApplicationContet() {
+        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
+    }
+
 }

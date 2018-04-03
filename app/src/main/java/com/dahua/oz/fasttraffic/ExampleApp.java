@@ -3,6 +3,7 @@ package com.dahua.oz.fasttraffic;
 import android.app.Application;
 
 import com.dahua.oz.t.core.app.Traffic;
+import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 /**
  * @author gaohuang_yangzi@dahuatech.com
@@ -15,6 +16,7 @@ public class ExampleApp extends Application {
         super.onCreate();
         Traffic.init(this)
                 .withApiHost("")
+                .withIcons(new FontAwesomeModule())
                 .config();
     }
 }
