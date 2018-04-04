@@ -16,7 +16,7 @@ import me.yokeyword.fragmentation.SupportActivity;
  * @version 2018/4/3
  */
 
-public abstract class ProxyActivity extends SupportActivity {
+public abstract class AbstractProxyActivity extends SupportActivity {
 
     /**
      * 返回根Delegate
