@@ -8,6 +8,7 @@ import com.dahua.oz.t.core.callback.IRequest;
 import com.dahua.oz.t.core.callback.ISuccess;
 import com.dahua.oz.t.core.ui.LoaderStyle;
 
+import java.io.File;
 import java.util.WeakHashMap;
 
 import okhttp3.MediaType;
@@ -31,6 +32,7 @@ public class RestClientBuilder {
     private RequestBody mBody;
     private LoaderStyle mLoaderStyle;
     private Context mContext;
+    private File mFile;
 
     RestClientBuilder() {
     }
@@ -87,6 +89,17 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder file(File file) {
+        this.mFile = file;
+        return this;
+    }
+
+    public final RestClientBuilder file(String file) {
+        this.mFile = new File(file);
+        return this;
+    }
+
+
     public final RestClient build() {
         // 这里面的任何一个参数都不能为空，否则会报空指针错误
         return new RestClient(
@@ -98,6 +111,7 @@ public class RestClientBuilder {
                 mError,
                 mBody,
                 mLoaderStyle,
-                mContext);
+                mContext,
+                mFile);
     }
 }
