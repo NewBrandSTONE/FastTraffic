@@ -3,6 +3,7 @@ package com.dahua.oz.fasttraffic;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.Toast;
 
 import com.dahua.oz.t.core.callback.IError;
 import com.dahua.oz.t.core.callback.IFailure;
@@ -23,17 +24,17 @@ public class ExampleDelegate extends TrafficDelegate {
 
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
-
+        testRestClient();
     }
 
     private void testRestClient() {
         RestClient.builder()
-                .url("")
+                .url("http://news.baidu.com")
                 .params("", "")
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-
+                        Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
                     }
                 })
                 .failure(new IFailure() {
@@ -48,6 +49,7 @@ public class ExampleDelegate extends TrafficDelegate {
 
                     }
                 })
-                .build();
+                .build()
+                .get();
     }
 }

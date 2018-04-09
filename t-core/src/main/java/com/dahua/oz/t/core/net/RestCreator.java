@@ -21,7 +21,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RestCreator {
 
-
     public static RestService getRestService() {
         return RestServiceHolder.REST_SERVICE;
     }
@@ -45,11 +44,9 @@ public class RestCreator {
 
     private static final class OkHttpHolder {
         private static final int TIME_OUT = 60;
-
         private static final OkHttpClient OK_HTTP_CLIENT = new OkHttpClient.Builder()
                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .build();
-
     }
 
     private static final class RestServiceHolder {

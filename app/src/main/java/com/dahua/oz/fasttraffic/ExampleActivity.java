@@ -5,6 +5,8 @@ import com.dahua.oz.t.core.delegate.TrafficDelegate;
 
 /**
  * 全局唯一的Activity
+ *
+ * @author Oz. Young
  */
 public class ExampleActivity extends AbstractProxyActivity {
 

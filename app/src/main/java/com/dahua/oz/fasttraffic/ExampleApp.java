@@ -15,7 +15,7 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
         Traffic.init(this)
-                .withApiHost("")
+                .withApiHost("http://www.baidu.com")
                 .withIcons(new FontAwesomeModule())
                 .config();
     }

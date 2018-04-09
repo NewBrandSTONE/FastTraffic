@@ -1,2 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dahua.oz.t.core" />
+    package="com.dahua.oz.t.core">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

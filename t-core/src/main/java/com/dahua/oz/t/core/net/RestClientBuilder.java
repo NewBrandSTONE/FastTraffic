@@ -1,9 +1,12 @@
 package com.dahua.oz.t.core.net;
 
+import android.content.Context;
+
 import com.dahua.oz.t.core.callback.IError;
 import com.dahua.oz.t.core.callback.IFailure;
 import com.dahua.oz.t.core.callback.IRequest;
 import com.dahua.oz.t.core.callback.ISuccess;
+import com.dahua.oz.t.core.ui.LoaderStyle;
 
 import java.util.WeakHashMap;
 
@@ -26,6 +29,8 @@ public class RestClientBuilder {
     private IFailure mFailure;
     private IError mError;
     private RequestBody mBody;
+    private LoaderStyle mLoaderStyle;
+    private Context mContext;
 
     RestClientBuilder() {
     }
@@ -70,8 +75,29 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder loader(Context context, LoaderStyle loaderStyle) {
+        this.mContext = context;
+        this.mLoaderStyle = loaderStyle;
+        return this;
+    }
+
+    public final RestClientBuilder loader(Context context) {
+        this.mContext = context;
+        this.mLoaderStyle = LoaderStyle.BallSpinFadeLoaderIndicator;
+        return this;
+    }
+
     public final RestClient build() {
         // 这里面的任何一个参数都不能为空，否则会报空指针错误
-        return new RestClient(mUrl, mParams, mRequest, mSuccess, mFailure, mError, mBody);
+        return new RestClient(
+                mUrl,
+                mParams,
+                mRequest,
+                mSuccess,
+                mFailure,
+                mError,
+                mBody,
+                mLoaderStyle,
+                mContext);
     }
 }
