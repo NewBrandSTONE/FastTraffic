@@ -1,4 +1,4 @@
-package com.dahua.oz.t.core.callback;
+package com.dahua.oz.t.core.net.callback;
 
 /**
  * 发送请求时回调的接口

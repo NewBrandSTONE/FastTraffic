@@ -2,11 +2,12 @@ package com.dahua.oz.t.core.net;
 
 import android.content.Context;
 
-import com.dahua.oz.t.core.callback.IError;
-import com.dahua.oz.t.core.callback.IFailure;
-import com.dahua.oz.t.core.callback.IRequest;
-import com.dahua.oz.t.core.callback.ISuccess;
-import com.dahua.oz.t.core.callback.RequestCallBacks;
+import com.dahua.oz.t.core.net.callback.IError;
+import com.dahua.oz.t.core.net.callback.IFailure;
+import com.dahua.oz.t.core.net.callback.IRequest;
+import com.dahua.oz.t.core.net.callback.ISuccess;
+import com.dahua.oz.t.core.net.callback.RequestCallBacks;
+import com.dahua.oz.t.core.net.download.DownLoadHandler;
 import com.dahua.oz.t.core.ui.LoaderStyle;
 import com.dahua.oz.t.core.ui.TrafficLoader;
 
@@ -40,6 +41,9 @@ public class RestClient {
     private final LoaderStyle LOADER_STYLE;
     private final Context CONTEXT;
     private final File FILE;
+    private final String DOWNLOAD_DIR;
+    private final String EXTENSION;
+    private final String FILE_NAME;
 
     public RestClient(String url,
                       WeakHashMap<String, Object> params,
@@ -50,7 +54,10 @@ public class RestClient {
                       RequestBody body,
                       LoaderStyle loaderStyle,
                       Context context,
-                      File file) {
+                      File file,
+                      String dowloadDir,
+                      String extension,
+                      String fileName) {
         this.URL = url;
         this.PARAMS.putAll(params);
         this.REQUEST = request;
@@ -61,6 +68,9 @@ public class RestClient {
         this.LOADER_STYLE = loaderStyle;
         this.CONTEXT = context;
         this.FILE = file;
+        this.DOWNLOAD_DIR = dowloadDir;
+        this.EXTENSION = extension;
+        this.FILE_NAME = fileName;
     }
 
     public static RestClientBuilder builder() {
@@ -158,6 +168,17 @@ public class RestClient {
 
     public final void delete() {
         request(HttpMethod.DELETE);
+    }
+
+    public final void download() {
+        new DownLoadHandler(URL,
+                REQUEST,
+                SUCCESS,
+                FAILURE,
+                ERROR,
+                DOWNLOAD_DIR,
+                EXTENSION,
+                FILE_NAME).handleDonwload();
     }
 
 }

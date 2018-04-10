@@ -1,4 +1,4 @@
-package com.dahua.oz.t.core.callback;
+package com.dahua.oz.t.core.net.callback;
 
 import com.dahua.oz.t.core.ui.LoaderStyle;
 import com.dahua.oz.t.core.ui.TrafficLoader;

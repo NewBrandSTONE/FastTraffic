@@ -1,4 +1,4 @@
-package com.dahua.oz.t.core.callback;
+package com.dahua.oz.t.core.net.callback;
 
 /**
  * 请求成功回调

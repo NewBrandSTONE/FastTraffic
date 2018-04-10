@@ -2,10 +2,10 @@ package com.dahua.oz.t.core.net;
 
 import android.content.Context;
 
-import com.dahua.oz.t.core.callback.IError;
-import com.dahua.oz.t.core.callback.IFailure;
-import com.dahua.oz.t.core.callback.IRequest;
-import com.dahua.oz.t.core.callback.ISuccess;
+import com.dahua.oz.t.core.net.callback.IError;
+import com.dahua.oz.t.core.net.callback.IFailure;
+import com.dahua.oz.t.core.net.callback.IRequest;
+import com.dahua.oz.t.core.net.callback.ISuccess;
 import com.dahua.oz.t.core.ui.LoaderStyle;
 
 import java.io.File;
@@ -33,6 +33,9 @@ public class RestClientBuilder {
     private LoaderStyle mLoaderStyle;
     private Context mContext;
     private File mFile;
+    private String mDownloadDir;
+    private String mExtension;
+    private String mFileName;
 
     RestClientBuilder() {
     }
@@ -100,6 +103,22 @@ public class RestClientBuilder {
     }
 
 
+    public final RestClientBuilder downloadURL(String url) {
+        this.mDownloadDir = url;
+        return this;
+    }
+
+    public final RestClientBuilder extension(String extension) {
+        this.mExtension = extension;
+        return this;
+    }
+
+    public final RestClientBuilder downloadFileName(String fileName) {
+        this.mFileName = fileName;
+        return this;
+    }
+
+
     public final RestClient build() {
         // 这里面的任何一个参数都不能为空，否则会报空指针错误
         return new RestClient(
@@ -112,6 +131,9 @@ public class RestClientBuilder {
                 mBody,
                 mLoaderStyle,
                 mContext,
-                mFile);
+                mFile,
+                mDownloadDir,
+                mExtension,
+                mFileName);
     }
 }

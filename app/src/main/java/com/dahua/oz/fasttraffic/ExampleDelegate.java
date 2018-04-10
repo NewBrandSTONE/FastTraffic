@@ -5,9 +5,9 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Toast;
 
-import com.dahua.oz.t.core.callback.IError;
-import com.dahua.oz.t.core.callback.IFailure;
-import com.dahua.oz.t.core.callback.ISuccess;
+import com.dahua.oz.t.core.net.callback.IError;
+import com.dahua.oz.t.core.net.callback.IFailure;
+import com.dahua.oz.t.core.net.callback.ISuccess;
 import com.dahua.oz.t.core.delegate.TrafficDelegate;
 import com.dahua.oz.t.core.net.RestClient;
 
