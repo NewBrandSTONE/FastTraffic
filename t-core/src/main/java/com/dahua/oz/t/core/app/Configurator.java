@@ -6,6 +6,8 @@ import com.joanzapata.iconify.Iconify;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import okhttp3.Interceptor;
+
 /**
  * 配置信息的获取以及存储
  *
@@ -16,9 +18,10 @@ import java.util.HashMap;
 public class Configurator {
     private static final HashMap<String, Object> TRAFIC_CONFIGS = new HashMap<>();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
+    private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
 
     private Configurator() {
-        TRAFIC_CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
+        TRAFIC_CONFIGS.put(ConfigKeys.CONFIG_READY.name(), false);
     }
 
     private static class Holder {
@@ -28,7 +31,7 @@ public class Configurator {
     public final void config() {
         // 初始化图标和字体
         initIcons();
-        TRAFIC_CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
+        TRAFIC_CONFIGS.put(ConfigKeys.CONFIG_READY.name(), true);
     }
 
     public static Configurator getInstance() {
@@ -40,7 +43,7 @@ public class Configurator {
     }
 
     public final Configurator withApiHost(String host) {
-        TRAFIC_CONFIGS.put(ConfigType.API_HOST.name(), host);
+        TRAFIC_CONFIGS.put(ConfigKeys.API_HOST.name(), host);
         return this;
     }
 
@@ -59,11 +62,23 @@ public class Configurator {
         return this;
     }
 
+    public final Configurator withInterceptor(Interceptor interceptor) {
+        INTERCEPTORS.add(interceptor);
+        TRAFIC_CONFIGS.put(ConfigKeys.INTERCEPTOR.name(), INTERCEPTORS);
+        return this;
+    }
+
+    public final Configurator withInterceptors(ArrayList<Interceptor> list) {
+        INTERCEPTORS.addAll(list);
+        TRAFIC_CONFIGS.put(ConfigKeys.INTERCEPTOR.name(), list);
+        return this;
+    }
+
     /**
      * 在获取某个配置文件之前，需要检查一下，配置工作是否完成
      */
     private void checkConfiguration() {
-        final boolean isReady = (boolean) TRAFIC_CONFIGS.get(ConfigType.CONFIG_READY.name());
+        final boolean isReady = (boolean) TRAFIC_CONFIGS.get(ConfigKeys.CONFIG_READY.name());
         if (!isReady) {
             throw new RuntimeException("Configuration is not ready, call configure");
         }

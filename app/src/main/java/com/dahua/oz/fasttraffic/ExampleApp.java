@@ -3,6 +3,7 @@ package com.dahua.oz.fasttraffic;
 import android.app.Application;
 
 import com.dahua.oz.t.core.app.Traffic;
+import com.dahua.oz.t.core.net.interceptor.DebugInterceptor;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 /**
@@ -15,7 +16,8 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
         Traffic.init(this)
-                .withApiHost("http://www.baidu.com")
+                .withApiHost("http://127.0.0.1")
+                .withInterceptor(new DebugInterceptor("test", R.raw.test))
                 .withIcons(new FontAwesomeModule())
                 .config();
     }

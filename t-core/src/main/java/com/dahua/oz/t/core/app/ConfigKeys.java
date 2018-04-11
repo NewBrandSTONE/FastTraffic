@@ -7,9 +7,10 @@ package com.dahua.oz.t.core.app;
  * @version 2018/4/2
  */
 
-public enum ConfigType {
+public enum ConfigKeys {
     API_HOST,
     APPLICATION_CONTEXT,
     CONFIG_READY,
-    ICON
+    ICON,
+    INTERCEPTOR
 }
