@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dahua.oz.t.core.activities.AbstractProxyActivity;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
@@ -39,17 +41,21 @@ public abstract class BaseDelegate extends SwipeBackFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = null;
+        final View rootView;
         if (setLayout() instanceof Integer) {
             rootView = inflater.inflate((Integer) setLayout(), container, false);
         } else if (setLayout() instanceof View) {
             rootView = (View) setLayout();
+        } else {
+            throw new ClassCastException("setLayout() type must be int or view");
         }
-        if (rootView != null) {
-            mUnBinder = ButterKnife.bind(this, rootView);
-            onBindView(savedInstanceState, rootView);
-        }
+        mUnBinder = ButterKnife.bind(this, rootView);
+        onBindView(savedInstanceState, rootView);
         return rootView;
+    }
+
+    public final AbstractProxyActivity getProxyActivity() {
+        return (AbstractProxyActivity) _mActivity;
     }
 
     @Override

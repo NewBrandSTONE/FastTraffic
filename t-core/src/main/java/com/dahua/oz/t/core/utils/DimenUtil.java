@@ -15,13 +15,13 @@ import com.dahua.oz.t.core.app.Traffic;
 public class DimenUtil {
 
     public static int getScreenWidth() {
-        final Resources resources = Traffic.getApplicationContet().getResources();
+        final Resources resources = Traffic.getApplicationContext().getResources();
         final DisplayMetrics dm = resources.getDisplayMetrics();
         return dm.widthPixels;
     }
 
     public static int getScreenHeight() {
-        final Resources resources = Traffic.getApplicationContet().getResources();
+        final Resources resources = Traffic.getApplicationContext().getResources();
         final DisplayMetrics dm = resources.getDisplayMetrics();
         return dm.heightPixels;
     }
