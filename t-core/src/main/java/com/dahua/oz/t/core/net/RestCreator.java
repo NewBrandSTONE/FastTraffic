@@ -2,6 +2,7 @@ package com.dahua.oz.t.core.net;
 
 import com.dahua.oz.t.core.app.ConfigKeys;
 import com.dahua.oz.t.core.app.Traffic;
+import com.dahua.oz.t.core.net.rx.RxRestService;
 
 import java.util.ArrayList;
 import java.util.WeakHashMap;
@@ -27,6 +28,7 @@ public class RestCreator {
         return RestServiceHolder.REST_SERVICE;
     }
 
+
     public static WeakHashMap<String, Object> getParams() {
         return ParamsHolder.PARAMS;
     }
@@ -41,6 +43,7 @@ public class RestCreator {
                 .baseUrl(BASE_URL)
                 .client(OkHttpHolder.OK_HTTP_CLIENT)
                 .addConverterFactory(ScalarsConverterFactory.create())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
 
@@ -65,5 +68,13 @@ public class RestCreator {
 
     private static final class RestServiceHolder {
         private static final RestService REST_SERVICE = RetorfitHolder.RETROFIT_CLIENT.create(RestService.class);
+    }
+
+    private static final class RxRestServiceHolder {
+        private static final RxRestService REST_SERVICE = RetorfitHolder.RETROFIT_CLIENT.create(RxRestService.class);
+    }
+
+    public static RxRestService getRxRestService() {
+        return RxRestServiceHolder.REST_SERVICE;
     }
 }
