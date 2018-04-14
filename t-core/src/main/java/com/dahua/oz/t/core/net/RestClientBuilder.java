@@ -6,7 +6,7 @@ import com.dahua.oz.t.core.net.callback.IError;
 import com.dahua.oz.t.core.net.callback.IFailure;
 import com.dahua.oz.t.core.net.callback.IRequest;
 import com.dahua.oz.t.core.net.callback.ISuccess;
-import com.dahua.oz.t.core.ui.LoaderStyle;
+import com.dahua.oz.t.core.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;

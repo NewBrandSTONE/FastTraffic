@@ -3,7 +3,7 @@ package com.dahua.oz.t.core.net.rx;
 import android.content.Context;
 
 import com.dahua.oz.t.core.net.RestCreator;
-import com.dahua.oz.t.core.ui.LoaderStyle;
+import com.dahua.oz.t.core.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;

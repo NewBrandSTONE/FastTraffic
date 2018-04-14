@@ -1,4 +1,4 @@
-package com.dahua.oz.t.core.ui;
+package com.dahua.oz.t.core.ui.loader;
 
 import android.content.Context;
 

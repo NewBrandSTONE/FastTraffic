@@ -8,8 +8,8 @@ import com.dahua.oz.t.core.net.callback.IRequest;
 import com.dahua.oz.t.core.net.callback.ISuccess;
 import com.dahua.oz.t.core.net.callback.RequestCallBacks;
 import com.dahua.oz.t.core.net.download.DownLoadHandler;
-import com.dahua.oz.t.core.ui.LoaderStyle;
-import com.dahua.oz.t.core.ui.TrafficLoader;
+import com.dahua.oz.t.core.ui.loader.LoaderStyle;
+import com.dahua.oz.t.core.ui.loader.TrafficLoader;
 
 import java.io.File;
 import java.util.WeakHashMap;
