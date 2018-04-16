@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface PayEntiryGenerator {
+public @interface PayEntryGenerator {
     /**
      * 获取传入的包名
      *

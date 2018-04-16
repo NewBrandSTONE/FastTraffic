@@ -51,12 +51,14 @@ public final class EntryVisitor extends SimpleAnnotationValueVisitor7<Void, Void
     }
 
     private void generateJavaCode() {
-        final TypeSpec wxEntryActivity = TypeSpec.classBuilder("WXEntryActivity")
+        // 这里传入的BuilderName是微信需要生成的Class名
+        final TypeSpec wxEntryActivity = TypeSpec.classBuilder("WxEntryActivity")
                 .addModifiers(Modifier.PUBLIC)
                 .addModifiers(Modifier.FINAL)
                 .superclass(TypeName.get(mTypeMirror))
                 .build();
 
+        // 微信也必须有.wxapi这个包名
         final JavaFile javaFile = JavaFile.builder(mPackageName + ".wxapi", wxEntryActivity)
                 .addFileComment("微信入口文件")
                 .build();

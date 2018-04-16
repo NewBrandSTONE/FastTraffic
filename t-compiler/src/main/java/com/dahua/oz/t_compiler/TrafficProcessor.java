@@ -2,7 +2,7 @@ package com.dahua.oz.t_compiler;
 
 import com.dahua.oz.t_annotations.AppRegisterGenerator;
 import com.dahua.oz.t_annotations.EntryGenerator;
-import com.dahua.oz.t_annotations.PayEntiryGenerator;
+import com.dahua.oz.t_annotations.PayEntryGenerator;
 import com.google.auto.service.AutoService;
 
 import java.lang.annotation.Annotation;
@@ -31,7 +31,7 @@ public class TrafficProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
         generateEntryCode(roundEnvironment);
         generatePayCode(roundEnvironment);
-        generateRegisterCode( roundEnvironment);
+        generateRegisterCode(roundEnvironment);
         return true;
     }
 
@@ -49,7 +49,7 @@ public class TrafficProcessor extends AbstractProcessor {
     private Set<Class<? extends Annotation>> getSupportedAnnotations() {
         final Set<Class<? extends Annotation>> anotations = new LinkedHashSet<>();
         anotations.add(EntryGenerator.class);
-        anotations.add(PayEntiryGenerator.class);
+        anotations.add(PayEntryGenerator.class);
         anotations.add(AppRegisterGenerator.class);
         return anotations;
     }
@@ -86,7 +86,7 @@ public class TrafficProcessor extends AbstractProcessor {
     private void generatePayCode(RoundEnvironment env) {
         final PayVisitor visitor = new PayVisitor();
         visitor.setFiler(processingEnv.getFiler());
-        scan(env, PayEntiryGenerator.class, visitor);
+        scan(env, PayEntryGenerator.class, visitor);
     }
 
     private void generateRegisterCode(RoundEnvironment env) {

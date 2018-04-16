@@ -43,7 +43,9 @@ dependencies {
     api 'me.yokeyword:fragmentation:1.3.3'
     api 'me.yokeyword:fragmentation-swipeback:1.3.3'
     // Butterknife
+    //noinspection GradleDependency
     api 'com.jakewharton:butterknife:8.4.0'
+    //noinspection GradleDependency
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     // 网络请求
     api 'com.squareup.retrofit2:retrofit:2.4.0'
@@ -64,4 +66,7 @@ dependencies {
     // DAO
     api 'org.greenrobot:greendao:3.2.2'
     api 'org.greenrobot:greendao-generator:3.2.2'
+    // 微信统计登录
+    //noinspection GradleDynamicVersion
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
 }
