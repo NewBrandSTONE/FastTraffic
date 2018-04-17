@@ -12,5 +12,8 @@ public enum ConfigKeys {
     APPLICATION_CONTEXT,
     CONFIG_READY,
     ICON,
-    INTERCEPTOR
+    INTERCEPTOR,
+    WXAPP_ID,
+    WXAPP_KEY,
+    WX_CALLBACK_ACTIVITY
 }

@@ -27,6 +27,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':t-traffic')
-    implementation project(':t-annotations')
+    provided project(':t-annotations')
     annotationProcessor project(':t-compiler')
 }

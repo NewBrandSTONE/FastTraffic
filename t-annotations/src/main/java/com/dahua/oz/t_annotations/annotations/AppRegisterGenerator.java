@@ -1,4 +1,4 @@
-package com.dahua.oz.t_annotations;
+package com.dahua.oz.t_annotations.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface PayEntryGenerator {
+public @interface AppRegisterGenerator {
     /**
      * 获取传入的包名
      *
@@ -24,5 +24,5 @@ public @interface PayEntryGenerator {
      *
      * @return 模板
      */
-    Class<?> payTemplete();
+    Class<?> registerTemplete();
 }

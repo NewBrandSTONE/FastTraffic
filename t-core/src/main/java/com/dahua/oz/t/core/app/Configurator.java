@@ -1,5 +1,7 @@
 package com.dahua.oz.t.core.app;
 
+import android.app.Activity;
+
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
@@ -71,6 +73,21 @@ public class Configurator {
     public final Configurator withInterceptors(ArrayList<Interceptor> list) {
         INTERCEPTORS.addAll(list);
         TRAFIC_CONFIGS.put(ConfigKeys.INTERCEPTOR.name(), list);
+        return this;
+    }
+
+    public final Configurator withWxAppIdKey(String idKey) {
+        TRAFIC_CONFIGS.put(ConfigKeys.WXAPP_ID.name(), idKey);
+        return this;
+    }
+
+    public final Configurator withWxAppSecret(String secretKey) {
+        TRAFIC_CONFIGS.put(ConfigKeys.WXAPP_KEY.name(), secretKey);
+        return this;
+    }
+
+    public final Configurator withWxCallBackActivity(Activity activity) {
+        TRAFIC_CONFIGS.put(ConfigKeys.WX_CALLBACK_ACTIVITY.name(), activity);
         return this;
     }
 

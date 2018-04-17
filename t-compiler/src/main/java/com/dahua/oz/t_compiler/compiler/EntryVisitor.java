@@ -1,4 +1,4 @@
-package com.dahua.oz.t_compiler;
+package com.dahua.oz.t_compiler.compiler;
 
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeName;
@@ -52,7 +52,7 @@ public final class EntryVisitor extends SimpleAnnotationValueVisitor7<Void, Void
 
     private void generateJavaCode() {
         // 这里传入的BuilderName是微信需要生成的Class名
-        final TypeSpec wxEntryActivity = TypeSpec.classBuilder("WxEntryActivity")
+        final TypeSpec wxEntryActivity = TypeSpec.classBuilder("WXEntryActivity")
                 .addModifiers(Modifier.PUBLIC)
                 .addModifiers(Modifier.FINAL)
                 .superclass(TypeName.get(mTypeMirror))

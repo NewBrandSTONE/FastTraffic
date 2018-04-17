@@ -1,4 +1,4 @@
-package com.dahua.oz.t_compiler;
+package com.dahua.oz.t_compiler.compiler;
 
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.TypeName;
@@ -18,7 +18,7 @@ import javax.lang.model.util.SimpleAnnotationValueVisitor7;
  * @version 2018/4/16
  */
 
-public final class PayVisitor extends SimpleAnnotationValueVisitor7<Void, Void> {
+public final class AppRegisterVisitor extends SimpleAnnotationValueVisitor7<Void, Void> {
 
     /**
      * 需要遍历的东西
@@ -51,14 +51,14 @@ public final class PayVisitor extends SimpleAnnotationValueVisitor7<Void, Void> 
     }
 
     private void generateJavaCode() {
-        final TypeSpec wxEntryActivity = TypeSpec.classBuilder("WXPayEntryActivity")
+        final TypeSpec wxEntryActivity = TypeSpec.classBuilder("AppRegister")
                 .addModifiers(Modifier.PUBLIC)
                 .addModifiers(Modifier.FINAL)
                 .superclass(TypeName.get(mTypeMirror))
                 .build();
 
         final JavaFile javaFile = JavaFile.builder(mPackageName + ".wxapi", wxEntryActivity)
-                .addFileComment("微信支付入口文件")
+                .addFileComment("微信广播接收器")
                 .build();
         try {
             javaFile.writeTo(mFiler);

@@ -1,8 +1,8 @@
-package com.dahua.oz.t_compiler;
+package com.dahua.oz.t_compiler.compiler;
 
-import com.dahua.oz.t_annotations.AppRegisterGenerator;
-import com.dahua.oz.t_annotations.EntryGenerator;
-import com.dahua.oz.t_annotations.PayEntryGenerator;
+import com.dahua.oz.t_annotations.annotations.AppRegisterGenerator;
+import com.dahua.oz.t_annotations.annotations.EntryGenerator;
+import com.dahua.oz.t_annotations.annotations.PayEntryGenerator;
 import com.google.auto.service.AutoService;
 
 import java.lang.annotation.Annotation;
@@ -21,6 +21,8 @@ import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
 
 /**
+ * 模仿ButterKnife自定义解析器
+ *
  * @author O.z Young
  * @version 2018/4/16
  */
