@@ -1,7 +1,7 @@
 package com.dahua.oz.fasttraffic.generators;
 
 import com.dahua.oz.t.core.wechat.templates.AppRegisterTemplate;
-import com.dahua.oz.t_annotations.PayEntryGenerator;
+import com.dahua.oz.t_annotations.annotations.PayEntryGenerator;
 
 /**
  * <一句话简述功能>

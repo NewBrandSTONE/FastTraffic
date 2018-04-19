@@ -1,6 +1,7 @@
 package com.dahua.oz.t.core.app;
 
 import android.content.Context;
+import android.os.Handler;
 
 import java.util.HashMap;
 
@@ -27,6 +28,10 @@ public final class Traffic {
 
     public static Context getApplicationContext() {
         return (Context) getConfigurations().get(ConfigKeys.APPLICATION_CONTEXT.name());
+    }
+
+    public static Handler getHandler() {
+        return (Handler) getConfigurations().get(ConfigKeys.HANDLER.name());
     }
 
 }

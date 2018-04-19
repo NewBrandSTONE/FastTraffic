@@ -15,5 +15,6 @@ public enum ConfigKeys {
     INTERCEPTOR,
     WXAPP_ID,
     WXAPP_KEY,
-    WX_CALLBACK_ACTIVITY
+    WX_CALLBACK_ACTIVITY,
+    HANDLER
 }

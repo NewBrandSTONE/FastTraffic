@@ -1,6 +1,7 @@
 package com.dahua.oz.t.core.app;
 
 import android.app.Activity;
+import android.os.Handler;
 
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
@@ -21,9 +22,11 @@ public class Configurator {
     private static final HashMap<String, Object> TRAFIC_CONFIGS = new HashMap<>();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
     private static final ArrayList<Interceptor> INTERCEPTORS = new ArrayList<>();
+    private static final Handler HANDLER = new Handler();
 
     private Configurator() {
         TRAFIC_CONFIGS.put(ConfigKeys.CONFIG_READY.name(), false);
+        TRAFIC_CONFIGS.put(ConfigKeys.HANDLER.name(), HANDLER);
     }
 
     private static class Holder {
