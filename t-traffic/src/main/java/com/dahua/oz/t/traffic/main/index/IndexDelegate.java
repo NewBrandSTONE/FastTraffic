@@ -2,6 +2,7 @@ package com.dahua.oz.t.traffic.main.index;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.dahua.oz.t.core.bottom.BottomItemDelegate;
+import com.dahua.oz.t.core.ui.recycler.BaseDecoration;
 import com.dahua.oz.t.core.ui.refresh.RefreshHandler;
 import com.dahua.oz.t.traffic.R;
 import com.dahua.oz.t.traffic.R2;
@@ -66,5 +68,6 @@ public class IndexDelegate extends BottomItemDelegate {
     private void initRecyclerView() {
         final GridLayoutManager manager = new GridLayoutManager(getContext(), 4);
         mRecyclerView.setLayoutManager(manager);
+        mRecyclerView.addItemDecoration(BaseDecoration.create(ContextCompat.getColor(getContext(), R.color.app_background), 5));
     }
 }

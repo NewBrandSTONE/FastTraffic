@@ -63,6 +63,7 @@ dependencies {
     api 'com.bigkoo:convenientbanner:2.0.5'
     api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
     // Json依赖
+    //noinspection GradleDependency
     api 'com.alibaba:fastjson:1.1.68.android'
     // DAO
     api 'org.greenrobot:greendao:3.2.2'
@@ -72,7 +73,10 @@ dependencies {
     api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     // RecyclerViewAdapterHelper
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    // RecyclerView分割线
+    api 'com.choices.divider:RecyclerView_Divider:1.0.0'
     // 图片加载
+    //noinspection GradleDependency
     api 'com.github.bumptech.glide:glide:4.6.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 }
