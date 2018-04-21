@@ -16,6 +16,8 @@ import com.dahua.oz.t.traffic.main.TrafficBottomDelegate;
 import com.dahua.oz.t.traffic.sign.ISignListener;
 import com.dahua.oz.t.traffic.sign.SignInDelegate;
 
+import qiu.niorgai.StatusBarCompat;
+
 /**
  * 全局唯一的Activity
  *
@@ -32,6 +34,7 @@ public class ExampleActivity extends AbstractProxyActivity
             actionBar.hide();
         }
         Traffic.getConfigurations().put(ConfigKeys.WX_CALLBACK_ACTIVITY.name(), this);
+        StatusBarCompat.translucentStatusBar(this, true);
     }
 
     @Override
