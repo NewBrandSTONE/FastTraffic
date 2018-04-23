@@ -8,4 +8,15 @@ package com.dahua.oz.t.core.delegate;
  */
 
 public abstract class TrafficDelegate extends PermissionCheckDelegate {
+
+    /**
+     * 获取父类的Delegate
+     *
+     * @return 父类delegate
+     */
+    @SuppressWarnings("unchecked")
+    public <T extends TrafficDelegate> T getParentDelegate() {
+        return (T) getParentFragment();
+    }
+
 }

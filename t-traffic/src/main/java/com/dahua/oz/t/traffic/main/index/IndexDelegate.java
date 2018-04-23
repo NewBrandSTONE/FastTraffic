@@ -15,6 +15,7 @@ import com.dahua.oz.t.core.ui.recycler.BaseDecoration;
 import com.dahua.oz.t.core.ui.refresh.RefreshHandler;
 import com.dahua.oz.t.traffic.R;
 import com.dahua.oz.t.traffic.R2;
+import com.dahua.oz.t.traffic.main.TrafficBottomDelegate;
 import com.joanzapata.iconify.widget.IconTextView;
 
 import butterknife.BindView;
@@ -41,10 +42,14 @@ public class IndexDelegate extends BottomItemDelegate {
 
     private RefreshHandler mRefreshHandler = null;
 
+
     private void initRefreshLayout() {
         mRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_orange_light, android.R.color.holo_red_light);
         mRefreshLayout.setProgressViewOffset(true, 120, 300);
+
+        final TrafficBottomDelegate trafficBottomParentDelegate = getParentDelegate();
+        mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(trafficBottomParentDelegate));
     }
 
     @Override
@@ -52,7 +57,7 @@ public class IndexDelegate extends BottomItemDelegate {
         super.onLazyInitView(savedInstanceState);
         initRefreshLayout();
         initRecyclerView();
-        mRefreshHandler.firstPage("http://192.168.31.230:8080/index");
+        mRefreshHandler.firstPage("http://172.19.101.185:8080/index");
     }
 
     @Override
