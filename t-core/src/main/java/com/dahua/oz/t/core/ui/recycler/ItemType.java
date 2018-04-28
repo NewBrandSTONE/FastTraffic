@@ -1,8 +1,7 @@
 package com.dahua.oz.t.core.ui.recycler;
 
 /**
- * <一句话简述功能>
- * <功能详细描述>
+ * 定义RecyclerView中的ItemType
  *
  * @author O.z Young
  * @version 2018/4/19
@@ -23,5 +22,8 @@ public class ItemType {
      * 轮播图
      */
     public static final int BANNER = 4;
-
+    /**
+     * 垂直列表的菜单
+     */
+    public static final int VERTICAL_MENU_LIST = 5;
 }
