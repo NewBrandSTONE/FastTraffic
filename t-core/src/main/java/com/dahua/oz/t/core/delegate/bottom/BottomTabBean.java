@@ -1,4 +1,4 @@
-package com.dahua.oz.t.core.bottom;
+package com.dahua.oz.t.core.delegate.bottom;
 
 /**
  * 底部导航栏上的item对象

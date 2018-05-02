@@ -10,7 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.dahua.oz.t.core.bottom.BottomItemDelegate;
+import com.dahua.oz.t.core.delegate.bottom.BottomItemDelegate;
 import com.dahua.oz.t.core.ui.recycler.BaseDecoration;
 import com.dahua.oz.t.core.ui.refresh.RefreshHandler;
 import com.dahua.oz.t.traffic.R;

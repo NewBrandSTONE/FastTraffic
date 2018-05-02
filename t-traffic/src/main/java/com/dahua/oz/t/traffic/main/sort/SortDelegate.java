@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.dahua.oz.t.core.bottom.BottomItemDelegate;
+import com.dahua.oz.t.core.delegate.bottom.BottomItemDelegate;
 import com.dahua.oz.t.traffic.R;
 import com.dahua.oz.t.traffic.main.sort.content.ContentDelegate;
 import com.dahua.oz.t.traffic.main.sort.list.VerticalListDelegate;

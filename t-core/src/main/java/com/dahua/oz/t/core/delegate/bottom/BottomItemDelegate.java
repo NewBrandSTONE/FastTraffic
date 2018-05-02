@@ -1,4 +1,4 @@
-package com.dahua.oz.t.core.bottom;
+package com.dahua.oz.t.core.delegate.bottom;
 
 import android.view.KeyEvent;
 import android.view.View;
