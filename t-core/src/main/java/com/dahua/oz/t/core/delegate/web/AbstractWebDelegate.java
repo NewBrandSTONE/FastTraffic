@@ -18,7 +18,7 @@ import java.lang.ref.WeakReference;
  * @version 2018/4/30
  */
 
-public abstract class AbstractWebDelegate extends TrafficDelegate {
+public abstract class AbstractWebDelegate extends TrafficDelegate implements IWebViewInit {
     private WebView mWebView = null;
     private final ReferenceQueue<WebView> WEB_VIEW_QUEUE = new ReferenceQueue<>();
     private String mUrl = null;
@@ -38,11 +38,29 @@ public abstract class AbstractWebDelegate extends TrafficDelegate {
      */
     public abstract IWebViewInit setInitializer();
 
+
+    public WebView getWebView() {
+        if (mWebView == null) {
+            throw new NullPointerException("WebView is NULL!!!");
+        } else {
+            return mIsWebViewAvailable ? mWebView : null;
+        }
+    }
+
+    public String getUrl() {
+        if (mUrl == null) {
+            throw new NullPointerException("Url is NULL!!!");
+        } else {
+            return mUrl;
+        }
+    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final Bundle args = getArguments();
         mUrl = args.getString(RouteKeys.URL.name());
+        initWebView();
     }
 
     @SuppressLint("JavascriptInterface")

@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.dahua.oz.t.core.delegate.bottom.BottomItemDelegate;
+import com.dahua.oz.t.core.delegate.web.WebDelegateImpl;
 import com.dahua.oz.t.traffic.R;
 
 /**
@@ -23,5 +24,12 @@ public class DiscoverDelegate extends BottomItemDelegate {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
 
+    }
+
+    @Override
+    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
+        super.onLazyInitView(savedInstanceState);
+        final WebDelegateImpl delegate = WebDelegateImpl.create("index.html");
+        loadRootFragment(R.id.web_container, delegate);
     }
 }
