@@ -7,6 +7,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.dahua.oz.t.core.delegate.IPageLoaderListener;
 import com.dahua.oz.t.core.delegate.web.chromeclient.TrafficWebViewChromeClientImpl;
 import com.dahua.oz.t.core.delegate.web.client.WebViewClientImpl;
 import com.dahua.oz.t.core.delegate.web.route.RouteKeys;
@@ -20,6 +21,12 @@ import com.dahua.oz.t.core.delegate.web.route.TrafficRouter;
  */
 
 public class WebDelegateImpl extends AbstractWebDelegate {
+
+    private IPageLoaderListener mPageLoaderListener = null;
+
+    public void setPageLoaderListener(IPageLoaderListener pageLoaderListener) {
+        this.mPageLoaderListener = pageLoaderListener;
+    }
 
     public static WebDelegateImpl create(String url) {
         final Bundle args = new Bundle();
@@ -55,7 +62,8 @@ public class WebDelegateImpl extends AbstractWebDelegate {
 
     @Override
     public WebViewClient initWebViewClient() {
-        final WebViewClient client = new WebViewClientImpl(this);
+        final WebViewClientImpl client = new WebViewClientImpl(this);
+        client.setPageLoaderListener(mPageLoaderListener);
         return client;
     }
 

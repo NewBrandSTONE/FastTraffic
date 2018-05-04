@@ -1,9 +1,11 @@
-package com.dahua.oz.t.core.delegate.web.event;
+package com.dahua.oz.fasttraffic.event;
 
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.webkit.WebView;
 import android.widget.Toast;
+
+import com.dahua.oz.t.core.delegate.web.event.AbstractEvent;
 
 /**
  * <一句话简述功能>
