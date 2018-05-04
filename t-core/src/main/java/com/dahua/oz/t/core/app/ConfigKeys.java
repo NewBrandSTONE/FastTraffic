@@ -16,5 +16,6 @@ public enum ConfigKeys {
     WXAPP_ID,
     WXAPP_KEY,
     WX_CALLBACK_ACTIVITY,
-    HANDLER
+    HANDLER,
+    JAVASCRIPT_INTERFACE
 }

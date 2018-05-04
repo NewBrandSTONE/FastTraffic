@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.webkit.WebView;
 
+import com.dahua.oz.t.core.app.ConfigKeys;
+import com.dahua.oz.t.core.app.Traffic;
 import com.dahua.oz.t.core.delegate.TrafficDelegate;
 import com.dahua.oz.t.core.delegate.web.route.RouteKeys;
 
@@ -22,6 +24,7 @@ public abstract class AbstractWebDelegate extends TrafficDelegate implements IWe
     private WebView mWebView = null;
     private final ReferenceQueue<WebView> WEB_VIEW_QUEUE = new ReferenceQueue<>();
     private String mUrl = null;
+    private TrafficDelegate mTopDelegate;
     /**
      * WebView是否可用
      */
@@ -46,6 +49,28 @@ public abstract class AbstractWebDelegate extends TrafficDelegate implements IWe
             return mIsWebViewAvailable ? mWebView : null;
         }
     }
+
+    /**
+     * 设置顶部TopBar的Delegate
+     *
+     * @param delegate
+     */
+    public void setTopDelegate(TrafficDelegate delegate) {
+        mTopDelegate = delegate;
+    }
+
+    /**
+     * 返回TopDelegate
+     *
+     * @return TopDelegate
+     */
+    public TrafficDelegate getTopDelegate() {
+        if (mTopDelegate == null) {
+            mTopDelegate = this;
+        }
+        return mTopDelegate;
+    }
+
 
     public String getUrl() {
         if (mUrl == null) {
@@ -77,8 +102,10 @@ public abstract class AbstractWebDelegate extends TrafficDelegate implements IWe
                 mWebView = init.initWebView(mWebView);
                 mWebView.setWebViewClient(init.initWebViewClient());
                 mWebView.setWebChromeClient(init.initWebChromeClient());
+                // 添加在Application的配置文件中
+                final String name = (String) Traffic.getConfigurations().get(ConfigKeys.JAVASCRIPT_INTERFACE.name());
                 // js与原生进行交互
-                mWebView.addJavascriptInterface(TrafficWebInterface.create(this), "taffic");
+                mWebView.addJavascriptInterface(TrafficWebInterface.create(this), name);
                 // webview可以使用了
                 mIsWebViewAvailable = true;
             } else {

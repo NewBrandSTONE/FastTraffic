@@ -9,5 +9,19 @@
 <body>
 这里是首页
 <a href="index2.html">点击跳转</a>
+<button id="alert">点我</button>
+<script type="text/javascript">
+
+    function nativeCall() {
+        alert("原生调用");
+    }
+
+    document.getElementById("alert").onclick = function() {
+        var command = {
+            "action" : "test"
+        };
+        traffic.event(JSON.stringify(command));
+    }
+</script>
 </body>
 </html>

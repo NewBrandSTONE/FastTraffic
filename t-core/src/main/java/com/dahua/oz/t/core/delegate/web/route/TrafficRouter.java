@@ -43,15 +43,20 @@ public class TrafficRouter {
             callPhone(delegate.getContext(), url);
             return true;
         }
+
+        final TrafficDelegate topDelegate = delegate.getTopDelegate();
+        final WebDelegateImpl webDelegate = WebDelegateImpl.create(url);
+        topDelegate.start(webDelegate);
+
         // 进行原生跳转
         // 防止BottomBar只进行内层跳转，外层不跳转，这里判断是否有父Delegate，如果有，则使用父Delegate进行跳转
-        final TrafficDelegate parentDelegate = delegate.getParentDelegate();
-        final WebDelegateImpl webDelegate = WebDelegateImpl.create(url);
-        if (parentDelegate == null) {
-            delegate.start(webDelegate);
-        } else {
-            parentDelegate.start(webDelegate);
-        }
+//        final TrafficDelegate parentDelegate = delegate.getParentDelegate();
+//        final WebDelegateImpl webDelegate = WebDelegateImpl.create(url);
+//        if (parentDelegate == null) {
+//            delegate.start(webDelegate);
+//        } else {
+//            parentDelegate.start(webDelegate);
+//        }
         return true;
     }
 

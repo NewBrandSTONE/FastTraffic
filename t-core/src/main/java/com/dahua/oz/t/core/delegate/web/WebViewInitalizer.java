@@ -1,9 +1,13 @@
 package com.dahua.oz.t.core.delegate.web;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
+import com.dahua.oz.t.core.app.ConfigKeys;
+import com.dahua.oz.t.core.app.Traffic;
 
 /**
  * WebView初始化类
@@ -14,6 +18,7 @@ import android.webkit.WebView;
 
 public class WebViewInitalizer {
 
+    @SuppressLint("SetJavaScriptEnabled")
     public WebView ceateWebView(WebView webView) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
@@ -35,7 +40,9 @@ public class WebViewInitalizer {
         final WebSettings settings = webView.getSettings();
         // 设置UserAgent
         String ua = settings.getUserAgentString();
-        settings.setUserAgentString(ua + "traffic");
+        settings.setUserAgentString(ua + Traffic.getConfigurations().get(ConfigKeys.JAVASCRIPT_INTERFACE.name()));
+        // 允许JavaScript脚本运行
+        settings.setJavaScriptEnabled(true);
         // 隐藏缩放控件
         settings.setBuiltInZoomControls(false);
         settings.setDisplayZoomControls(false);
