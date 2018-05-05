@@ -109,6 +109,17 @@ public class Configurator {
     }
 
     /**
+     * 浏览器加载的Host
+     *
+     * @param webHost 浏览器Host
+     * @return
+     */
+    public final Configurator withWebHost(String webHost) {
+        TRAFIC_CONFIGS.put(ConfigKeys.WEB_HOST.name(), webHost);
+        return this;
+    }
+
+    /**
      * 在获取某个配置文件之前，需要检查一下，配置工作是否完成
      */
     private void checkConfiguration() {
