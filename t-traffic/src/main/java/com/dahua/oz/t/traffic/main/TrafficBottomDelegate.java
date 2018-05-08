@@ -6,6 +6,7 @@ import com.dahua.oz.t.core.delegate.bottom.BaseBottomDelegate;
 import com.dahua.oz.t.core.delegate.bottom.BottomItemDelegate;
 import com.dahua.oz.t.core.delegate.bottom.BottomTabBean;
 import com.dahua.oz.t.core.delegate.bottom.ItemBuilder;
+import com.dahua.oz.t.traffic.main.cart.ShopCartDelegate;
 import com.dahua.oz.t.traffic.main.discover.DiscoverDelegate;
 import com.dahua.oz.t.traffic.main.index.IndexDelegate;
 import com.dahua.oz.t.traffic.main.sort.SortDelegate;
@@ -26,7 +27,7 @@ public class TrafficBottomDelegate extends BaseBottomDelegate {
         items.put(new BottomTabBean("{fa-home}", "主页"), new IndexDelegate());
         items.put(new BottomTabBean("{fa-sort}", "分类"), new SortDelegate());
         items.put(new BottomTabBean("{fa-compass}", "发现"), new DiscoverDelegate());
-        items.put(new BottomTabBean("{fa-shopping-cart}", "购物车"), new IndexDelegate());
+        items.put(new BottomTabBean("{fa-shopping-cart}", "购物车"), new ShopCartDelegate());
         items.put(new BottomTabBean("{fa-user}", "我的"), new IndexDelegate());
         return builder.addItems(items).build();
     }

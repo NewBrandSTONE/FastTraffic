@@ -77,7 +77,7 @@ public class WebViewClientImpl extends WebViewClient {
         String webHost = (String) Traffic.getConfigurations().get(ConfigKeys.WEB_HOST.name());
         if (webHost != null) {
             // 这个url写具体的网页域名
-            final String cookieStr = cookieManager.getCookie("");
+            final String cookieStr = cookieManager.getCookie(webHost);
             if (cookieStr != null && !cookieStr.equals("")) {
                 if (cookieManager.hasCookies()) {
                     // 将webHost保存到SharePreference中
